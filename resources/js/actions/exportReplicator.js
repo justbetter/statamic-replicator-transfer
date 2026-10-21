@@ -11,6 +11,7 @@ export default function exportReplicator() {
                 headers: {
                     'Content-Type': 'application/json',
                     Accept: 'application/json',
+                    'X-XSRF-TOKEN': decodeURIComponent(document.cookie.split('; ').find(r => r.startsWith('XSRF-TOKEN='))?.split('=')[1] ?? ''),
                 },
                 body: JSON.stringify({
                     value: payload.value,
